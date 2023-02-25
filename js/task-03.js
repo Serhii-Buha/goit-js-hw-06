@@ -12,3 +12,26 @@ const images = [
     alt: 'Group of Horses Running',
   },
 ];
+
+const galleryList = document.querySelector('.gallery');
+
+const galleryListItem = images
+  .map(({ url, alt }) => {
+    return `
+    <li class="gallery__item">
+    <img src="${url}" alt="${alt}" class="gallery__image" />
+    </li>
+    `;
+  })
+  .join('');
+
+galleryList.insertAdjacentHTML("afterbegin", galleryListItem);
+
+// "beforebegin" - перед elem
+// "afterbegin" - внутри elem, перед всеми детьми
+// "beforeend" - внутри elem, после всех детей
+// "afterend" - после elem
+
+
+// elem.insertAdjacentHTML(position, string);
+// Аргумент position - это строка, позиция относительно элемента elem. Принимает одно из четырёх значений.
